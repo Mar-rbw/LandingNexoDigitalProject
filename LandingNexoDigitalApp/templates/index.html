@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %} Inicio · NexoDigital Soluciones {% endblock title %}
+
+{% block content %}
+
+<section class="tn-hero">
+  <div class="container">
+    <h1 class="display-5">Soluciones tecnológicas para hacer crecer tu empresa</h1>
+    <p class="lead col-lg-8">En NexoDigital Soluciones ayudamos a pequeñas y medianas empresas a digitalizar sus procesos con desarrollo web, aplicaciones móviles, nube y ciberseguridad.</p>
+    <a href="{% url 'servicios' %}" class="btn btn-light btn-lg mt-2 me-2">Ver nuestros servicios</a>
+    <a href="{% url 'contacto' %}" class="btn btn-outline-light btn-lg mt-2">Contáctanos</a>
+  </div>
+</section>
+
+<section class="container py-5">
+  <h2 class="mb-4">Lo que hacemos</h2>
+  <div class="row g-4">
+    {% for servicio in servicios %}
+      
+            <div class="col-md-6 col-lg-3">
+        <div class="card tn-card p-3 position-relative">
+          <div class="tn-icon">{{ servicio.icon }}</div>
+          <h5 class="card-title">{{ servicio.title }}</h5>
+          <p class="card-text text-muted">{{ servicio.text}}</p>
+          <a href="{% url servicio.url %}" class="text-decoration-none text-center">Ver</a>
+        </div>
+      </div>
+    
+    {% empty %}
+    <p class="card-text">No hay servicios</p>
+    {% endfor %}
+  </div>
+  <p class="text-center mt-4"><a href="{% url 'servicios' %}" class="fw-semibold">Ver el detalle de todos los servicios &rarr;</a></p>
+</section>
+
+<section class="container py-5">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-6">
+      <h2 class="mb-3">¿Por qué NexoDigital?</h2>
+      <ul class="tn-feature-list list-unstyled">
+        <li>+120 proyectos entregados desde 2018</li>
+        <li>Equipo multidisciplinario: desarrollo, diseño y ciberseguridad</li>
+        <li>Soporte post-entrega incluido en todos los servicios</li>
+      </ul>
+      <a href="{% url 'nosotros' %}" class="fw-semibold">Conoce más sobre nosotros &rarr;</a>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

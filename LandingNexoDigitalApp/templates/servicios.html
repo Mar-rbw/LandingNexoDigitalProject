@@ -13,39 +13,19 @@
 
 <section class="container py-5">
   <div class="row g-4">
+
+    {% for servicio in servicios %}
       <div class="col-md-6 col-lg-3">
         <div class="card tn-card p-3 position-relative">
-          <div class="tn-icon">WEB</div>
-          <h5 class="card-title">Desarrollo de Sitios Web</h5>
-          <p class="card-text text-muted">Sitios y aplicaciones web a medida, rápidos y responsivos para tu negocio.</p>
-          <a href="detalle-1.html" class="stretched-link fw-semibold">Ver detalle &rarr;</a>
+          <div class="tn-icon">{{ servicio.icon }}</div>
+          <h5 class="card-title">{{ servicio.title }}</h5>
+          <p class="card-text text-muted">{{ servicio.text }}</p>
+          <a href="{% url servicio.url %}" class="text-decoration-none text-center">Ver</a>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card tn-card p-3 position-relative">
-          <div class="tn-icon">APP</div>
-          <h5 class="card-title">Aplicaciones Móviles</h5>
-          <p class="card-text text-muted">Apps nativas e híbridas para Android e iOS, conectadas a tus sistemas.</p>
-          <a href="detalle-2.html" class="stretched-link fw-semibold">Ver detalle &rarr;</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card tn-card p-3 position-relative">
-          <div class="tn-icon">CLOUD</div>
-          <h5 class="card-title">Consultoría en la Nube</h5>
-          <p class="card-text text-muted">Migración y optimización de infraestructura en la nube para tu empresa.</p>
-          <a href="detalle-3.html" class="stretched-link fw-semibold">Ver detalle &rarr;</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card tn-card p-3 position-relative">
-          <div class="tn-icon">SEC</div>
-          <h5 class="card-title">Ciberseguridad para Pymes</h5>
-          <p class="card-text text-muted">Protege los datos de tu empresa y de tus clientes con buenas prácticas reales.</p>
-          <a href="detalle-4.html" class="stretched-link fw-semibold">Ver detalle &rarr;</a>
-        </div>
-      </div>
+      {% empty %}
+        <p class="card-text">No hay servicios</p>
+    {% endfor %}
   </div>
 </section>
-
 {% endblock content %}

@@ -21,8 +21,12 @@ from LandingNexoDigitalApp import views as app
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app.landing_inicio, name='inicio'),
-    path('servicios/', app.landing_inicio, name='servicios'),
+    path('servicios/', app.landing_servicios, name='servicios'),
     path('nosotros/', app.landing_nosotros, name='nosotros'),
     path('contacto/', app.landing_contacto, name='contacto'),
+    path('servicioWeb/', app.landing_detalleWeb, name='web'),
+    path('servicioMobile/', app.landing_detalleMobile, name='mobile'),
+    path('servicioNube/', app.landing_detalleNube, name='nube'),
+    path('servicioSeguridad/', app.landing_detalleSeguridad, name='seguridad'),
 
 ]
